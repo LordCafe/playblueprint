@@ -89,3 +89,22 @@
     transition: opacity .3s ease-in-out;
     opacity: 1;
 }
+
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  margin: 10px;
+  height: 60px;
+}
+
+.buttons button {
+  margin: 10px;
+  padding: 10px;
+  text-transform: capitalize;
+  background-color: black;
+  border: none;
+  outline: 1px ;
+}
