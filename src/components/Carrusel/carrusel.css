@@ -1,0 +1,91 @@
+/* Fade Out */
+.fade-out {
+    animation-name: fade-out;
+    animation-duration: 1s;
+  }
+  
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+      transform: scale(3);
+    }
+  
+    to {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+
+
+/* Fade In */
+.fade-in {
+    animation-name: fade-in;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+
+
+  .fade-in-out {
+    opacity: 0;
+    animation: fade-in 1s ease-in forwards, fade-out 4s 1s ease-out forwards;
+  }
+  
+  @keyframes fade-in {
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+
+  .images{
+    display: flex;
+  }
+
+  .flex{
+    display: flex;
+  }
+
+  .card-image{
+    display: flex;
+    flex-basis: 33%;
+    justify-content: center;
+  }
+
+
+  .small{ 
+    zoom: .5;
+  }
+
+  .card-image img {
+
+    height: 600px;
+  }
+
+
+  .successfully-saved.hide-opacity{
+    opacity: 0;
+}
+
+.successfully-saved {
+    color: #FFFFFF;
+    text-align: center;
+    transition: opacity .3s ease-in-out;
+    opacity: 1;
+}
