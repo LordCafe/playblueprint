@@ -14,6 +14,7 @@ let GetImages = async function () {
 function Controls() {
     let [index, setIndex] = useState(0);
     let [Images, setImages] = useState([]);
+    
     useEffect(() => {
         GetImages().then((data) => {
             setImages(data);
