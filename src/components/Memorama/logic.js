@@ -115,6 +115,7 @@ function  Logic( set,cards , referent  ) {
 
 function MemoramaLogic(Cards, reset) {
     let [one, two] = Cards;  
+    console.log( { one ,two })
     let HtmlOne = one.key;
     let HtmlTwo = two.key;
     let actions = "nada";
@@ -129,6 +130,7 @@ function MemoramaLogic(Cards, reset) {
   
     switch (actions) {
       case "found":
+        console.log("found pair")
         Cards.forEach(({found }) => {
           found( true );
           reset([]);
@@ -136,6 +138,7 @@ function MemoramaLogic(Cards, reset) {
   
         break;
       case "reset":
+        console.log( "reseting")
         reset([]);  
         setTimeout(() => {
           Cards.forEach(({ flip }) => {         

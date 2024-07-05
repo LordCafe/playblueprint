@@ -32,7 +32,7 @@ function AddActionFlip( callback , container , State , Found  ){
 }
 
 
-function PlayCardFlip(  container , Show, Register , playeds , idKey , found  ){
+function PlayCardFlip(  container , Show, Register , playeds , idKey , found , id  ){
     let founded = container.current.dataset.outgame;
     let otherPlayed = playeds.current[0] || { key : false };
     let IsTheSameCard = ( otherPlayed.key == idKey );
@@ -40,7 +40,7 @@ function PlayCardFlip(  container , Show, Register , playeds , idKey , found  ){
        Show( false );       
        Register( [ ...playeds.current , { 
             flip: Show,        
-            key : idKey,
+            key : id,
             found: found
        } ] )
     }
@@ -56,15 +56,13 @@ export default function Memo( props ){
     let showBack = ( show ) ? "card-back" : "hide";
     let Selected = ( show ) ? "" : "mark";
     let CardFound = ( found ) ? "founded" : "Nofound";
-
-    AddActionFlip( callback, container, setShow, setFound  );  
-    
+    AddActionFlip( callback, container, setShow, setFound  );   
     
     
     return (
         <div className={ "card-memo " + Selected + " " + CardFound  } ref={ container }  data-outgame={ found }   onClick={ ()=>{  
             
-            PlayCardFlip( container , setShow , register , playeds , idKey , setFound );
+            PlayCardFlip( container , setShow , register , playeds , idKey , setFound , id );
             
             
         }}>
