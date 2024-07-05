@@ -15,7 +15,17 @@ let GetImages = async function () {
 
 
 
-let Revolver = false;
+function CreateMultipleCards(  Data, set, cards, referent  ){
+   // Creando componente
+   let components = Data.map(( c ,  )=>{
+    let key = Math.random( );
+    return <Memo {...c} key={ key}  idKey={ key } register = {   set }  playeds={ cards }  callback={ referent } ></Memo>
+ });
+
+ return components;
+
+
+}
 
 
 function  Logic( set,cards , referent  ) {
@@ -27,15 +37,7 @@ function  Logic( set,cards , referent  ) {
          GetImages().then( (data)=>{
             // Duplicando data, para que cada imagen tenga un par.
             let doble = [ ...data, ...data];
-              
-             // Creando componente
-             let components = doble.map(( c ,  )=>{
-
-                let key = Math.random( );
-                return <Memo {...c} key={ key}  idKey={ key } register = {   set }  playeds={ cards }  callback={ referent } ></Memo>
-             });
-
-             
+            let components = CreateMultipleCards( doble, set, cards, referent);          
             // Revolviendo cartas.
             container.current = components.sort( ()=> Math.random( ) - 0.5 );
             //Mandando a pintar.
@@ -49,7 +51,6 @@ function  Logic( set,cards , referent  ) {
     useEffect(()=>{
 
         if( container.current.length > 0 ){
-
               // Revolviendo cartas.
               container.current = container.current.sort( ()=> Math.random( ) - 0.5 );
               //Mandando a pintar.

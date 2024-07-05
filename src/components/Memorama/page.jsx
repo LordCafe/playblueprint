@@ -3,7 +3,7 @@ import {useState, useEffect, useRef} from "react";
 import Board from "./Board";
 import {Logic , MemoramaLogic } from "./logic";
 import "./memorama.css";
-import { Swanky_and_Moo_Moo } from "next/font/google";
+
 
 
 
